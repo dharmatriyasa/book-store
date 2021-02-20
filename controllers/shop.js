@@ -33,6 +33,12 @@ exports.getCart = (req, res, index) => {
     });
 }
 
+exports.getOrders = (req, res, index) => {
+    res.render('shop/orders' , {
+        pageTitle: 'Orders Page',
+        path: '/orders'
+    });
+}
 exports.getCheckout = (req, res, next) => {
     res.render('shop/checkout', {
         pageTitle: 'Checkout',
