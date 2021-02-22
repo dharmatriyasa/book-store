@@ -37,14 +37,20 @@ exports.getIndex = (req, res, next) => {
     });
 }
 
-exports.getCart = (req, res, index) => {
+exports.getCart = (req, res, next) => {
     res.render('shop/cart' , {
         pageTitle: 'Cart Page',
         path: '/cart'
     });
 }
 
-exports.getOrders = (req, res, index) => {
+exports.postCart = (req, res, next) => {
+    const prodId = req.body.productId;
+    console.log(prodId);
+    res.redirect('/cart');
+}
+
+exports.getOrders = (req, res, next) => {
     res.render('shop/orders' , {
         pageTitle: 'Orders Page',
         path: '/orders'
