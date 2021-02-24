@@ -1,3 +1,4 @@
+const Cart = require('../models/cart');
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
@@ -66,4 +67,10 @@ exports.getProducts = (req, res, next) => {
             productCSS: true
         });
     });
+}
+
+exports.postDeleteProduct = (req, res, next) => {
+    const prodId = req.body.productId;
+    Product.deleteById(prodId);
+    res.redirect('/admin/products');
 }
